@@ -35,8 +35,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func increment() {
-  //      items.append("item\(items.count)")
-        messages.append(Message(msg:"message\(messages.count)"))
+        if messages.count % 2 == 0 {
+            messages.append(Message(msg:"message\(messages.count)", type:MsgType.Mine))
+        } else {
+            messages.append(Message(msg:"message\(messages.count)", type:MsgType.Other))
+        }
     }
     
     override func viewDidLoad() {
@@ -66,11 +69,16 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("cell created \(indexPath.row)")
+//        var cell:MessageViewCell? = tableView.dequeueReusableCell(withIdentifier: "cell") as? MessageViewCell
+//        if cell == nil {
+//            cell = MessageViewCell(style: .default, reuseIdentifier: "cell")
+//        }
+        
         let cell = MessageViewCell(style: .default, reuseIdentifier: "cell")
-//        cell.textLabel?.textAlignment = .left // 右揃えにするなら .right
-//        cell.textLabel?.text = messages[indexPath.row].msg
         cell.setup(msg: messages[indexPath.row])
         return cell
+//        cell?.setup(msg: messages[indexPath.row])
+//        return cell!
     }
 
 }
