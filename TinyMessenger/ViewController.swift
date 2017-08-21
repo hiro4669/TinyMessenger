@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageField: UITextField!
     
 //    var items = [String]()
     
@@ -34,11 +35,17 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    func increment() {
+    func initTextField() {
+        messageField.delegate = self
+    }
+    
+    func increment(msgStr:String = "abc") {
         if messages.count % 2 == 0 {
-            messages.append(Message(msg:"message\(messages.count)", type:MsgType.Mine))
+//            messages.append(Message(msg:"message\(messages.count)", type:MsgType.Mine))
+            messages.append(Message(msg: msgStr, type:MsgType.Mine))
         } else {
-            messages.append(Message(msg:"message\(messages.count)", type:MsgType.Other))
+            messages.append(Message(msg: msgStr, type:MsgType.Other))
+//            messages.append(Message(msg:"message\(messages.count)", type:MsgType.Other))
         }
     }
     
@@ -46,6 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         initTable()
+        initTextField()
         
     }
 
@@ -56,10 +64,14 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     @IBAction func sendHandler(_ sender: Any) {
         print("Send")
-        increment()
-        tableView.reloadData()
-        DispatchQueue.main.async {
-            self.update()
+        if let msg = self.messageField.text {
+            print(msg)
+            increment(msgStr: msg)  
+//        increment()
+            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.update()
+            }
         }
     }
     
@@ -79,6 +91,11 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
 //        cell?.setup(msg: messages[indexPath.row])
 //        return cell!
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
     }
 
 }

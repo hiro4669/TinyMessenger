@@ -36,19 +36,30 @@
                                     <action selector="sendHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UPC-o1-ACB"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Input Message" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-GN-NcB">
+                                <rect key="frame" x="10" y="696" width="308" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ksD-GN-NcB" secondAttribute="bottom" constant="10" id="35t-Ea-Bam"/>
                             <constraint firstItem="JFk-6S-HFt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7SZ-b1-5bO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="I5v-0D-qnZ" secondAttribute="trailing" constant="30" id="AMw-s4-AX2"/>
+                            <constraint firstItem="ksD-GN-NcB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Flc-UI-xJ7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ksD-GN-NcB" secondAttribute="bottom" constant="10" id="IdN-r9-RQy"/>
                             <constraint firstItem="JFk-6S-HFt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="RdX-vU-Sqe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JFk-6S-HFt" secondAttribute="bottom" constant="60" id="UA8-Wp-TPx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I5v-0D-qnZ" secondAttribute="bottom" constant="10" id="i0S-FW-bfl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I5v-0D-qnZ" secondAttribute="bottom" constant="10" id="nee-aO-CD2"/>
+                            <constraint firstItem="I5v-0D-qnZ" firstAttribute="leading" secondItem="ksD-GN-NcB" secondAttribute="trailing" constant="10" id="sg3-J4-A5w"/>
                             <constraint firstAttribute="trailing" secondItem="JFk-6S-HFt" secondAttribute="trailing" id="wWI-6E-UEd"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="messageField" destination="ksD-GN-NcB" id="Hab-SR-V1g"/>
                         <outlet property="tableView" destination="JFk-6S-HFt" id="Bc0-aF-EJr"/>
                     </connections>
                 </viewController>

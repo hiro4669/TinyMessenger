@@ -35,8 +35,8 @@ class MessageViewCell :UITableViewCell {
             self.bubbleImage.image = UIImage(named: "bubbleMine.png")?.stretchableImage(withLeftCapWidth: 15, topCapHeight: 14)
             self.bubbleImage.addSubview(label)
             
-            print("parent width = \(self.frame.size.width)")
-            print("image width  = \(w+27)")
+//            print("parent width = \(self.frame.size.width)")
+//            print("image width  = \(w+27)")
             
             let offset:CGFloat = self.frame.size.width - w + 27
 
