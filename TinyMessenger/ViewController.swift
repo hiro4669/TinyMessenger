@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         tableView.separatorColor = UIColor.clear
         tableView.dataSource = self
         for _ in 1...10 {
-            increment()
+            increment(msgStr:"cde")
         }
     }
     
@@ -66,7 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         print("Send")
         if let msg = self.messageField.text {
             print(msg)
-            increment(msgStr: msg)  
+            increment(msgStr: msg)
 //        increment()
             tableView.reloadData()
             DispatchQueue.main.async {
@@ -81,16 +81,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("cell created \(indexPath.row)")
-//        var cell:MessageViewCell? = tableView.dequeueReusableCell(withIdentifier: "cell") as? MessageViewCell
-//        if cell == nil {
-//            cell = MessageViewCell(style: .default, reuseIdentifier: "cell")
-//        }
+        var cell:MessageViewCell? = tableView.dequeueReusableCell(withIdentifier: "cell") as? MessageViewCell
+        if cell == nil {
+            print("cannot reuse")
+            cell = MessageViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        cell?.setup(msg: messages[indexPath.row])
+        return cell!
         
+
+        /*
         let cell = MessageViewCell(style: .default, reuseIdentifier: "cell")
         cell.setup(msg: messages[indexPath.row])
         return cell
-//        cell?.setup(msg: messages[indexPath.row])
-//        return cell!
+    */
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {

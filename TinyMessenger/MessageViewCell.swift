@@ -25,6 +25,7 @@ class MessageViewCell :UITableViewCell {
     }
     
     func setup(msg:Message) {
+//        bubbleImage.removeFromSuperview()
         self.message = msg
         let label:UILabel = self.message.label
         
