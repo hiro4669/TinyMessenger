@@ -27,6 +27,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     func initTable() {
+        self.tableView.register(MessageViewCell.self, forCellReuseIdentifier: "cell")
+        
+        
         tableView.backgroundColor = UIColor(patternImage: UIImage(named: "main_back.png")!)
         tableView.separatorColor = UIColor.clear
         tableView.dataSource = self
@@ -55,6 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         initTable()
         initTextField()
         
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +71,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         if let msg = self.messageField.text {
             print(msg)
             increment(msgStr: msg)
-//        increment()
             tableView.reloadData()
             DispatchQueue.main.async {
                 self.update()
@@ -80,21 +83,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cell created \(indexPath.row)")
-        var cell:MessageViewCell? = tableView.dequeueReusableCell(withIdentifier: "cell") as? MessageViewCell
-        if cell == nil {
-            print("cannot reuse")
-            cell = MessageViewCell(style: .default, reuseIdentifier: "cell")
-        }
-        cell?.setup(msg: messages[indexPath.row])
-        return cell!
-        
-
-        /*
-        let cell = MessageViewCell(style: .default, reuseIdentifier: "cell")
+//        print("cell created \(indexPath.row)")
+        let cell:MessageViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! MessageViewCell
         cell.setup(msg: messages[indexPath.row])
         return cell
-    */
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {

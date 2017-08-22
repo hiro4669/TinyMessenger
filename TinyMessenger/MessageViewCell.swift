@@ -25,7 +25,8 @@ class MessageViewCell :UITableViewCell {
     }
     
     func setup(msg:Message) {
-//        bubbleImage.removeFromSuperview()
+        bubbleImage.removeFromSuperview()
+        bubbleImage = UIImageView()
         self.message = msg
         let label:UILabel = self.message.label
         
@@ -37,9 +38,11 @@ class MessageViewCell :UITableViewCell {
             self.bubbleImage.addSubview(label)
             
 //            print("parent width = \(self.frame.size.width)")
-//            print("image width  = \(w+27)")
+//            print("w            = \(w)")
+//            print("parent offset = \(self.frame.size.width - w - 27)")
             
-            let offset:CGFloat = self.frame.size.width - w + 27
+            let offset:CGFloat = self.frame.size.width - w - 27
+//            let offset:CGFloat = 0
 
             self.bubbleImage.frame = CGRect(x:offset, y:0, width: 27 + w, height:h + 16)
         } else {
