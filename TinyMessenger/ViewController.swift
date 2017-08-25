@@ -95,6 +95,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             DispatchQueue.main.async {
                 self.update()
             }
+            
+            view.endEditing(true)
         }
     }
     
@@ -131,7 +133,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         print("keyboard change frame")
         if editingField == nil {
             return
-        }        
+        }
         let userInfo = (notification as Notification).userInfo!
         let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let newY = keyboardFrame.minY - subView.frame.size.height
