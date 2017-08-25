@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,40 +25,51 @@
                                 <rect key="frame" x="0.0" y="40" width="414" height="636"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5v-0D-qnZ">
-                                <rect key="frame" x="328" y="696" width="36" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cec-WN-JFX">
+                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQc-gz-l3e">
+                                        <rect key="frame" x="368" y="15" width="36" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="4TJ-tQ-GQl"/>
+                                        </constraints>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzU-cY-0vg"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3g-4J-Et3">
+                                        <rect key="frame" x="8" y="15" width="352" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="36" id="Jiv-nt-0Ah"/>
+                                    <constraint firstAttribute="trailing" secondItem="nQc-gz-l3e" secondAttribute="trailing" constant="10" id="2eN-45-K1W"/>
+                                    <constraint firstItem="w3g-4J-Et3" firstAttribute="leading" secondItem="cec-WN-JFX" secondAttribute="leading" constant="8" id="4iU-W0-JEy"/>
+                                    <constraint firstAttribute="bottom" secondItem="nQc-gz-l3e" secondAttribute="bottom" constant="15" id="BKa-Zp-44d"/>
+                                    <constraint firstAttribute="height" constant="60" id="Ldg-Za-cA5"/>
+                                    <constraint firstItem="nQc-gz-l3e" firstAttribute="leading" secondItem="w3g-4J-Et3" secondAttribute="trailing" constant="8" id="Ouc-OF-6nm"/>
+                                    <constraint firstAttribute="bottom" secondItem="w3g-4J-Et3" secondAttribute="bottom" constant="15" id="ucW-Tr-d9s"/>
                                 </constraints>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="sendHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UPC-o1-ACB"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Input Message" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-GN-NcB">
-                                <rect key="frame" x="10" y="696" width="308" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ksD-GN-NcB" secondAttribute="bottom" constant="10" id="35t-Ea-Bam"/>
                             <constraint firstItem="JFk-6S-HFt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7SZ-b1-5bO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="I5v-0D-qnZ" secondAttribute="trailing" constant="30" id="AMw-s4-AX2"/>
-                            <constraint firstItem="ksD-GN-NcB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Flc-UI-xJ7"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ksD-GN-NcB" secondAttribute="bottom" constant="10" id="IdN-r9-RQy"/>
                             <constraint firstItem="JFk-6S-HFt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="RdX-vU-Sqe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JFk-6S-HFt" secondAttribute="bottom" constant="60" id="UA8-Wp-TPx"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I5v-0D-qnZ" secondAttribute="bottom" constant="10" id="i0S-FW-bfl"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I5v-0D-qnZ" secondAttribute="bottom" constant="10" id="nee-aO-CD2"/>
-                            <constraint firstItem="I5v-0D-qnZ" firstAttribute="leading" secondItem="ksD-GN-NcB" secondAttribute="trailing" constant="10" id="sg3-J4-A5w"/>
+                            <constraint firstItem="cec-WN-JFX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xqu-ji-siY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cec-WN-JFX" secondAttribute="bottom" id="Zb9-Rq-29C"/>
+                            <constraint firstAttribute="trailing" secondItem="cec-WN-JFX" secondAttribute="trailing" id="oz7-g6-c1c"/>
                             <constraint firstAttribute="trailing" secondItem="JFk-6S-HFt" secondAttribute="trailing" id="wWI-6E-UEd"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="messageField" destination="ksD-GN-NcB" id="Hab-SR-V1g"/>
+                        <outlet property="messageField" destination="w3g-4J-Et3" id="yOA-wu-QZj"/>
+                        <outlet property="subView" destination="cec-WN-JFX" id="y88-A4-pPy"/>
                         <outlet property="tableView" destination="JFk-6S-HFt" id="Bc0-aF-EJr"/>
                     </connections>
                 </viewController>

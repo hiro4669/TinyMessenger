@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     @IBOutlet weak var messageField: UITextField!
     
 
+    @IBOutlet weak var subView: UIView!
     var messages = [Message]()
     
     var editingField:UITextField?
@@ -128,34 +129,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     /* Notification Center */
     func keyboardChangeFrame(_ notification: Notification) -> Void {
         print("keyboard change frame")
-        guard let fld = editingField else {
+        if editingField == nil {
             return
-        }
-//        print(fld)
+        }        
         let userInfo = (notification as Notification).userInfo!
         let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let newY = keyboardFrame.minY - fld.frame.size.height
-        let newFrame = CGRect(x: fld.frame.minX, y: newY, width: fld.frame.size.width, height: fld.frame.size.height)
-        fld.frame = newFrame
-        /*
-        let userInfo = (notification as Notification).userInfo!
-        let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        print("field = \(fld.frame.maxY)")
-        print("keyboard min = \(keyboardFrame.minY)")
-        print("keyboard max = \(keyboardFrame.maxY)")
-        print("text height = \(fld.frame.size.height)")
-        
-        overlap = fld.frame.maxY - keyboardFrame.midY + 5
-        if overlap > 0 {
-            print("overlap = \(overlap)")
-            let newY = keyboardFrame.minY - fld.frame.size.height
-
-            let newFrame = CGRect(x: fld.frame.minX, y: newY, width: fld.frame.size.width, height: fld.frame.size.height)
-//            let newFrame = CGRect(x: fld.frame.minX, y: overlap, width: fld.frame.size.width, height: fld.frame.size.height)
-            fld.frame = newFrame
-        }
-        */
-        
+        let newY = keyboardFrame.minY - subView.frame.size.height
+        let newFrame = CGRect(x: subView.frame.minX, y: newY, width: subView.frame.size.width, height: subView.frame.size.height)
+        subView.frame = newFrame
     }
     
     func keyboardWillShow(_ notification: Notification) {
