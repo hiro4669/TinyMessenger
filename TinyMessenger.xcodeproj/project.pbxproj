@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		531451111F78A69700512CED /* MsgSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531451101F78A69700512CED /* MsgSender.swift */; };
 		53246D301F4A7F190043AAFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53246D2F1F4A7F190043AAFC /* AppDelegate.swift */; };
 		53246D321F4A7F190043AAFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53246D311F4A7F190043AAFC /* ViewController.swift */; };
 		53246D351F4A7F190043AAFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53246D331F4A7F190043AAFC /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		531451101F78A69700512CED /* MsgSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgSender.swift; sourceTree = "<group>"; };
 		53246D2C1F4A7F190043AAFC /* TinyMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53246D2F1F4A7F190043AAFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53246D311F4A7F190043AAFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				53246D361F4A7F190043AAFC /* Assets.xcassets */,
 				53246D381F4A7F190043AAFC /* LaunchScreen.storyboard */,
 				53246D3B1F4A7F190043AAFC /* Info.plist */,
+				531451101F78A69700512CED /* MsgSender.swift */,
 			);
 			path = TinyMessenger;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531451111F78A69700512CED /* MsgSender.swift in Sources */,
 				53246D441F4AAB9E0043AAFC /* MessageViewCell.swift in Sources */,
 				53246D491F4AB8120043AAFC /* Message.swift in Sources */,
 				53246D321F4A7F190043AAFC /* ViewController.swift in Sources */,

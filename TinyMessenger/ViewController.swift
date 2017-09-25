@@ -20,6 +20,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     var editingField:UITextField?
     var overlap:CGFloat = 0.0
     
+    var uid:Int = 1
+    var tid:Int = 10
+    let msgSender: MsgSender = MsgSender(sendUrl: "http://localhost:8080/json",
+                                         checkUrl: "http://localhost:8080/id")
+    
     func update() -> Void {
         let nos = tableView.numberOfSections
         let nor = tableView.numberOfRows(inSection: nos - 1)
@@ -53,6 +58,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             messages.append(Message(msg: msgStr, type:MsgType.Other))
 //            messages.append(Message(msg:"message\(messages.count)", type:MsgType.Other))
         }
+    }
+    
+    func sendMessage(msgStr:String) {
+        let msg = Message(msg:msgStr, type:MsgType.Mine, tid:self.tid, uid:self.uid)
+        messages.append(msg)
+        msgSender.sendMessage(uid: msg.uid, tid: msg.tid, msg: msg.msg)
     }
     
     override func viewDidLoad() {
@@ -90,7 +101,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         print("Send")
         if let msg = self.messageField.text {
             print(msg)
-            increment(msgStr: msg)
+//            increment(msgStr: msg)
+            sendMessage(msgStr: msg)
             tableView.reloadData()
             DispatchQueue.main.async {
                 self.update()
@@ -149,6 +161,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         print("keyboard will hide")
     }
     
+    @IBAction func checkMessage(_ sender: Any) {
+        print("check message")
+    }
     
 
 }

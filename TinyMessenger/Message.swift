@@ -20,6 +20,9 @@ class Message {
     let font:UIFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
     var type:MsgType = MsgType.Mine
     
+    var tid:Int
+    var uid:Int
+    
     var label:UILabel {
         let lb:UILabel = UILabel()
         lb.text = self.msg
@@ -36,12 +39,20 @@ class Message {
     
     init(msg:String = "Hello") {
         self.msg = msg
+        self.tid = 0
+        self.uid = 0
     }
     
     convenience init(msg:String, type:MsgType) {
         self.init(msg:msg)
         self.type = type
 
+    }
+    
+    convenience init(msg:String, type:MsgType, tid:Int, uid:Int) {
+        self.init(msg:msg, type:type)
+        self.tid = tid
+        self.uid = uid
     }
     
     func hello() {
