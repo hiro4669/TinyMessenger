@@ -25,6 +25,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     let msgSender: MsgSender = MsgSender(sendUrl: "http://localhost:8080/json",
                                          checkUrl: "http://localhost:8080/id")
     
+    func notify(message:Message) -> Void {
+        message.show()
+        messages.append(message)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.update()
+        }
+    }
+    
     func update() -> Void {
         let nos = tableView.numberOfSections
         let nor = tableView.numberOfRows(inSection: nos - 1)
@@ -71,7 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         // Do any additional setup after loading the view, typically from a nib.
         initTable()
         initTextField()
-        
+        msgSender.controller = self
         
         let notification = NotificationCenter.default
         
@@ -163,6 +172,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     
     @IBAction func checkMessage(_ sender: Any) {
         print("check message")
+        msgSender.checkMessage(id: self.uid)
     }
     
 

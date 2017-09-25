@@ -59,4 +59,8 @@ class Message {
         print(msg)
     }
     
+    func show() -> Void {
+        print(String(format:"from %d: to %d: msg->%@", self.tid, self.uid, self.msg))
+    }
+    
 }
